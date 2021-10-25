@@ -1,4 +1,4 @@
-# 2021 Kaggle Machine Learning & Data Science <br> Survey Competetion
+# 2021 Kaggle Machine Learning & Data Science <br> Survey Competition
 
 ## 1.대회 요약
 ### 1-1.개요
