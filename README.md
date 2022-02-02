@@ -1,6 +1,8 @@
 # Tabular Playground Series(TPS)-December
 
 ## 1. 개요
+<img width="930" alt="1" src="https://user-images.githubusercontent.com/66727848/152116299-1ee3abd6-0dd6-4d92-90a6-809b023903ab.png">
+
 Kaggle에서는 매월 1일부터 한 달 간 Competition을 개최합니다. 매월 진행되는 만큼 Prediction 및 Classification의 다양한 문제 유형과 RMSE, ROC curve, Accuracy 등의 평가 지표를 활용하여 Score를 평가합니다. 때문에 초, 중급자를 대상으로 Skill Up을 위한 최적의 Competition으로 평가받고 있습니다.
 
 TPS에서 제공하는 데이터는 Tabular 형태로 제공되며, 대체로 비 식별화되어 있는 것이 특징입니다. 그러나 비식별화 여부와 관계 없이 EDA, Visualization부터 Feature Engineering, Statistical Analysis, ML/DL Engineering까지의 종합적인 실험을 통해 Score를 높힐 수 있는 특징을 가지고 있습니다. 저는 TPS 9월과 12월 대회에 솔로로 참여하여 각각 466/1942, 97/1188의 순위를 기록하였습니다. 그 중 다양한 실험을 진행했던 12월 대회의 내용을 정리하였습니다.
@@ -33,17 +35,17 @@ TPS에서 제공하는 데이터는 Tabular 형태로 제공되며, 대체로 �
 1-Rawah Wilderness Area, 2-Neota Wilderness Area, 3-Comanche Peak Wilderness Area, 4-Cache la Poudre Wilderness Area
 
 **Soil_Type:**
-1-Cathedral family - Rock outcrop complex, extremely stony, 2-Vanet - Ratake families complex, very stony </br>
-3-Haploborolis - Rock outcrop complex, rubbly, 4-Ratake family - Rock outcrop complex, rubbly </br>
-5-Vanet family - Rock outcrop complex complex, rubbly, 6-Vanet - Wetmore families - Rock outcrop complex, stony…etc
+1-Cathedral family - Rock outcrop complex, extremely stony, 2-Vanet - Ratake families complex, very stony, 3-Haploborolis - Rock outcrop complex, rubbly, 4-Ratake family - Rock outcrop complex, rubbly, 5-Vanet family - Rock outcrop complex complex, rubbly, 6-Vanet - Wetmore families - Rock outcrop complex, stony…etc
 
 **Cover_Type:**
 1-Spruce/Fir, 2-Lodgepole Pine, 3-Ponderosa Pine, 4-Cottonwood/Willow, 5-Aspen, 6-Douglas-fir, 7-Krummholz
 </br></br>
 ## 4. Continuous Column 인사이트 종합
-1. train/test 데이터의 분포가 거의 유사
+1. column별 train/test 데이터 분포가 거의 유사
 2. Aspect을 제외한 모든 column에서 많은 이상치 발견
 3. Elevation을 제외한 모든 column에서 target label 구분이 거의 안됨
+<img width="930" alt="1" src="https://user-images.githubusercontent.com/66727848/152116055-2388f858-5467-429a-850b-01248d02ada6.png">
+
 
 ### 4-1. 이슈 세부
 
