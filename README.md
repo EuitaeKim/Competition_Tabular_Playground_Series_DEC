@@ -51,22 +51,22 @@ TPS에서 제공하는 데이터는 Tabular 형태로 제공되며, 대체로 �
 
 |Column Name|Issue|problem solving direction|
 |:---|:---|:---|
-|Aspect, Slope|각도, 경사를 의미하는데 < 0 or > 360 값 존재|1. 정상 범위 안으로 수정 2. +- 360, +-90으로 값 보정 3. 변경하지 않음|
-|Distance|거리를 의미하는데 < 0 값 존재|1. 정상 범위 안으로 수정 2. 변경하지 않음|
-|Hillshade|(유추)grayscale형식의 색상 값인데 < 0 or > 255 값 존재|1. 정상 범위 안으로 수정 2. 변경하지 않음|
+|Aspect, Slope|각도, 경사를 의미하는데 < 0 or > 360 값 존재|1. 정상 범위 안으로 수정 2. +- 360, +-90으로 값 보정 3. 수정하지 않음|
+|Distance|거리를 의미하는데 < 0 값 존재|1. 정상 범위 안으로 수정 2. 수정하지 않음|
+|Hillshade|(유추)grayscale형식의 색상 값인데 < 0 or > 255 값 존재|1. 정상 범위 안으로 수정 2. 수정하지 않음|
 
 ### 4-2. 데이터 세부
 
-|Column Name|Case.1|Case.2|Case.3|Case.4|
+|Column Name|Case.1-train|Case.2-test|Case.3-train|Case.4-test|
 |:---|:---|:---|:---|:---|
 |Aspect|train<0: 43,730개|test<0: 24,948개|train>360: 68,323개|test>360: 17,946개|
-|Slope|train<0: 7,822개|test<0: 2,027개|||
-|Horizontal_Distance_To_Hydrology|train<0: 2,959개|test<0: 4,123개|||
-|Vertical_Distance_To_Hydrology|train<0: 567,497개|test<0: 145,050개|||
-|Horizontal_Distance_To_Roadways|train<0: 30,726개|test<0: 10,160개|||
-|Horizontal_Distance_To_Fire_Points|train<0: 25,717개|test<0: 6,246개|||
-|Hillshade_9am|train<0: 6개||train>255: 32,128개|test>255: 9,243개|
-|Hillshade_Noon|||train>255: 38,861개|test>255: 10,997개|
+|Slope|train<0: 7,822개|test<0: 2,027개|-|-|
+|Horizontal_Distance_To_Hydrology|train<0: 2,959개|test<0: 4,123개|-|-|
+|Vertical_Distance_To_Hydrology|train<0: 567,497개|test<0: 145,050개|-|-|
+|Horizontal_Distance_To_Roadways|train<0: 30,726개|test<0: 10,160개|-|-|
+|Horizontal_Distance_To_Fire_Points|train<0: 25,717개|test<0: 6,246개|-|-|
+|Hillshade_9am|train<0: 6개|-|train>255: 32,128개|test>255: 9,243개|
+|Hillshade_Noon|-|-|train>255: 38,861개|test>255: 10,997개|
 |Hillshade_3pm|train<0: 14,211개|test<0: 4,485개|train>255: 4,277개|test>255: 1,094개|
 
 </br>
@@ -75,3 +75,6 @@ TPS에서 제공하는 데이터는 Tabular 형태로 제공되며, 대체로 �
 1. Cover_Type(target) column에서 데이터가 1개(5) 혹은 극소수인(4) label이 있음
 2. Soil_Type7, Soil_Type15 column은 데이터 값 하나만을 갖음
 3. Wilderness_Area2을 제외한 모든 column에서의 결괏값이 불균형함
+<img width="930" alt="1" src="https://user-images.githubusercontent.com/66727848/152118126-b5694973-2033-4054-a9e4-4ed561f2bfd0.png">
+
+
