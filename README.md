@@ -1,7 +1,7 @@
 # Tabular Playground Series(TPS)-December
 
 ## 1. 개요
-<img width="930" alt="1" src="https://user-images.githubusercontent.com/66727848/152116299-1ee3abd6-0dd6-4d92-90a6-809b023903ab.png">
+<img width="970" alt="1" src="https://user-images.githubusercontent.com/66727848/152116299-1ee3abd6-0dd6-4d92-90a6-809b023903ab.png">
 
 Kaggle에서는 매월 1일부터 한 달 간 Competition을 개최합니다. 매월 진행되는 만큼 Prediction 및 Classification의 다양한 문제 유형과 RMSE, ROC curve, Accuracy 등의 평가 지표를 활용하여 Score를 평가합니다. 때문에 초, 중급자를 대상으로 Skill Up을 위한 최적의 Competition으로 평가받고 있습니다.
 
@@ -41,13 +41,14 @@ TPS에서 제공하는 데이터는 Tabular 형태로 제공되며, 대체로 �
 1-Spruce/Fir, 2-Lodgepole Pine, 3-Ponderosa Pine, 4-Cottonwood/Willow, 5-Aspen, 6-Douglas-fir, 7-Krummholz
 </br></br>
 ## 4. Continuous Column 인사이트 종합
+### 4-1. 공통
 1. column별 train/test 데이터 분포가 거의 유사
 2. Aspect을 제외한 모든 column에서 많은 이상치 발견
 3. Elevation을 제외한 모든 column에서 target label 구분이 거의 안됨
-<img width="930" alt="1" src="https://user-images.githubusercontent.com/66727848/152116055-2388f858-5467-429a-850b-01248d02ada6.png">
+<img width="970" alt="1" src="https://user-images.githubusercontent.com/66727848/152116055-2388f858-5467-429a-850b-01248d02ada6.png">
 
 
-### 4-1. 이슈 세부
+### 4-2. 개별 인사이트
 
 |Column Name|Issue|problem solving direction|
 |:---|:---|:---|
@@ -55,7 +56,7 @@ TPS에서 제공하는 데이터는 Tabular 형태로 제공되며, 대체로 �
 |Distance|거리를 의미하는데 < 0 값 존재|1. 정상 범위 안으로 수정 2. 수정하지 않음|
 |Hillshade|(유추)grayscale형식의 색상 값인데 < 0 or > 255 값 존재|1. 정상 범위 안으로 수정 2. 수정하지 않음|
 
-### 4-2. 데이터 세부
+### 4-3. 개별 인사이트 세부
 
 |Column Name|Case.1-train|Case.2-test|Case.3-train|Case.4-test|
 |:---|:---|:---|:---|:---|
@@ -75,6 +76,33 @@ TPS에서 제공하는 데이터는 Tabular 형태로 제공되며, 대체로 �
 1. Cover_Type(target) column에서 데이터가 1개(5) 혹은 극소수인(4) label이 있음
 2. Soil_Type7, Soil_Type15 column은 데이터 값 하나만을 갖음
 3. Wilderness_Area2을 제외한 모든 column에서의 결괏값이 불균형함
-<img width="930" alt="1" src="https://user-images.githubusercontent.com/66727848/152118126-b5694973-2033-4054-a9e4-4ed561f2bfd0.png">
+<img width="970" alt="1" src="https://user-images.githubusercontent.com/66727848/152118126-b5694973-2033-4054-a9e4-4ed561f2bfd0.png">
 
+</br>
+
+## 6. Feature Engineering 종합
+<img width="970" alt="1" src="https://user-images.githubusercontent.com/66727848/152128558-98a45c01-1622-46aa-878f-bd12950faff1.png">
+
+</br>
+
+## 7. Modeling 결과 종합 (Hyperparameter & Feature Importances)
+### 7-1. Hyperparameter Importances
+1. Hyperparameter Importances의 chart를 보면, 모델 성능에 큰 영향을 주는 Parameter를 ‘Learning_rate’, ‘Max_depth’임을 알 수 있다.
+2. ‘Learning_rate’, ‘Max_depth’의 Value 별 Accuracy를 나타낸 Slice Plot을 보면, ‘Learning_rate’는 값이 커질수록, ‘Max_depth’은 값이 작을수록 좋은 성능을 내고 있다.
+3. 위의 인사이트를 바탕으로 모델을 더 이상 깊게, 혹은 디테일하게 디벨롭할 필요가 없다 판단하였다. 즉, 모델 튜닝으로는 성능 향상의 한계가 있으며, 데이터를 더 핸들링 해야한다고 판단하였다.
+4. 때문에 추가로 Feature Importances를 진행하였다.
+
+<img width="970" alt="1" src="https://user-images.githubusercontent.com/66727848/152130535-30c9d97e-91fb-4ca0-afd7-205714f08ced.png">
+
+### 7-2. Feature Importances
+1. 위 차트는 feature가 사용된 전체 노드의 평균 Gain이며, 아래 chart는 feature가 사용된 전체 노드 Gain의 총합이다.
+2. 두 chart를 보면 어느 한쪽의 결괏값이 굉장히 낮거나, 두 chart 모두에서 낮은 값을 갖는 경우가 있다. 이러한 feature는 제거하였다. 다만 원본 feature는 모델의 학습 시간이 매우 커지는 경우를 제외하고는 제거하지 않았다.
+3. 추가로 confusion matrix를 활용하여 Cover_Type=2와 3, Cover_Type=1과 7을 구분하지 못하는 것이 낮은 성능의 원인임을 파악하였다. 이러한 문제를 해결하기 위해 여러 feature를 만들어보고 제거도 해보았지만, 성능 향상에는 한계가 있었다. 때문에 기존 XGboost에서 딥러닝 모델로 변경하여 다시 모델링을 진행하였다.
+
+<img width="970" alt="1" src="https://user-images.githubusercontent.com/66727848/152137371-bca09f36-2f59-482e-b572-7e14acb047df.png">
+
+*참고: Importance 측정 단위를 Gain으로 설정한 이유*
+1. XGBoost는 다양한 방법의 importance 측정 단위를 제공한다. 
+2. Weight는 각 feature가 노드 분기에 사용된 횟수를, Cover은 각 feature가 관여한 샘플의 수를, Gain은 각 feature로 분기되었을 때 얻는 성능 상의 이득을 결과로 산출한다.
+3. 이때 사용하는 데이터가 범주형이 많을 경우 Weight는 적절하지 않으며, Label 별 데이터양이 불균형한 경우 Cover도 적절하지 않기 때문에 Gain으로 설정하였다.
 
