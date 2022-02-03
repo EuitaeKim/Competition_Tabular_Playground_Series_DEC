@@ -81,7 +81,7 @@ TPS에서 제공하는 데이터는 Tabular 형태로 제공되며, 대체로 �
 </br>
 
 ## 6. Feature Engineering 종합
-<img width="970" alt="1" src="https://user-images.githubusercontent.com/66727848/152128558-98a45c01-1622-46aa-878f-bd12950faff1.png">
+<img width="970" alt="1" src="https://user-images.githubusercontent.com/66727848/152330383-5163a995-91a4-416d-a3b4-a2d6503fce93.png">
 
 </br>
 
