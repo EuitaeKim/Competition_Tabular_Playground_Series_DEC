@@ -56,7 +56,7 @@ TPS에서 제공하는 데이터는 Tabular 형태로 제공되며, 대체로 �
 |Distance|거리를 의미하는데 < 0 값 존재|1. 정상 범위 안으로 수정 2. 수정하지 않음|
 |Hillshade|(유추)grayscale형식의 색상 값인데 < 0 or > 255 값 존재|1. 정상 범위 안으로 수정 2. 수정하지 않음|
 
-### 4-3. 개별 인사이트 세부
+### 4-3. 개별 인사이트(4-2.) 세부
 
 |Column Name|Case.1-train|Case.2-test|Case.3-train|Case.4-test|
 |:---|:---|:---|:---|:---|
@@ -111,8 +111,13 @@ TPS에서 제공하는 데이터는 Tabular 형태로 제공되며, 대체로 �
 ## 8. 최종 모델 및 학습 결과
 <img width="970" alt="1" src="https://user-images.githubusercontent.com/66727848/152508591-2f2b877c-ceff-437d-bbb4-42e04807341c.png">
 
-
 ***Test data Accuracy: Public Leaderboard: 0.95711, Private Leaderboard: 0.95658***
 
+</br>
+
 ## 9. 회고
-1. 
+9월 대회에서는 개인 일정이 많아 제대로 참여하지 못해 아쉬움이 많았습니다. 때문에 이번 12월 대회에서는 9월의 아쉬움을 만회하기 위해(?) 많은 실험을 진행해 보는 것을 목표로 하였습니다. 이에 Optuna Framework, Stacking, Pseudo-Labelling 등 다양한 방법론을 적용해 보고, 400만x56의 큰 데이터를 빠르게 핸들링 및 모델링 하기 위해 Sklearnex Framework 및 메모리 사용량 최적화 방법 등을 배우고 적용해 보았습니다. 
+
+다만 대회 후반부에 들어서면서 Score 향상을 위한 EDA, Feature Engineering, Modeling의 한계를 느끼곤 하였습니다. 더 이상 무엇을 해야 할지 몰라 Discussion Section을 보고만 있기도 하였고, 유용한 인사이트를 알아내도 역량이 부족해 적용하지 못했던 적도 있었습니다.
+
+때문에 이번 대회를 통해 느꼈던 1. 깊이 있는 Feature Engineering을 위한 데이터 핸들링/시각화/통계 방법론, 2. 빠르게 Baseline을 잡아 방향성을 설정하는 방법 3. ML/DL Model을 원하는 구조에 맞게 설계할 수 있는 역량 등의 부족한 점을 보완하여 다시 한번 도전할 예정입니다.
