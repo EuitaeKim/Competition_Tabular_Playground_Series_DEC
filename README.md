@@ -3,9 +3,9 @@
 ## 1. 개요
 <img width="970" alt="1" src="https://user-images.githubusercontent.com/66727848/152116299-1ee3abd6-0dd6-4d92-90a6-809b023903ab.png">
 
-Kaggle에서는 매월 1일부터 한 달 간 Competition을 개최합니다. 매월 진행되는 만큼 Prediction 및 Classification의 다양한 문제 유형과 RMSE, ROC curve, Accuracy 등의 평가 지표를 활용하여 Score를 평가합니다. 때문에 초, 중급자를 대상으로 Skill Up을 위한 최적의 Competition으로 평가받고 있습니다.
+Kaggle은 매월 1일부터 한 달 간 Competition을 개최합니다. 매월 진행되는 만큼 Prediction 및 Classification의 다양한 문제 유형과 RMSE, ROC curve, Accuracy 등의 평가 지표를 활용하여 Score를 평가합니다. 때문에 초, 중급자를 대상으로 Skill Up을 위한 최적의 Competition으로 평가받고 있습니다.
 
-TPS에서 제공하는 데이터는 Tabular 형태로 제공되며, 대체로 비 식별화되어 있는 것이 특징입니다. 그러나 비식별화 여부와 관계 없이 EDA, Visualization부터 Feature Engineering, Statistical Analysis, ML/DL Engineering까지의 종합적인 실험을 통해 Score를 높힐 수 있는 특징을 가지고 있습니다. 저는 TPS 9월과 12월 대회에 솔로로 참여하여 각각 466/1942, 97/1188의 순위를 기록하였습니다. 그 중 다양한 실험을 진행했던 12월 대회의 내용을 정리하였습니다.
+TPS에서 제공하는 데이터는 Tabular 형태로 제공되며, 대체로 비 식별화되어 있는 것이 특징입니다. 그러나 비식별화 여부와 관계 없이 EDA, Visualization부터 Feature Engineering, ML/DL Engineering까지의 종합적인 실험을 통해 Score를 높힐 수 있는 특징을 가지고 있습니다. 저는 TPS 9월과 12월 대회에 솔로로 참여하여 각각 466/1942, 97/1188의 순위를 기록하였습니다. 그 중 다양한 실험을 진행했던 12월 대회의 내용을 정리하였습니다.
 </br></br>
 ## 2. 대회 요약
 1. 주제: Forest Cover Type Prediction
@@ -106,3 +106,13 @@ TPS에서 제공하는 데이터는 Tabular 형태로 제공되며, 대체로 �
 2. Weight는 각 feature가 노드 분기에 사용된 횟수를, Cover은 각 feature가 관여한 샘플의 수를, Gain은 각 feature로 분기되었을 때 얻는 성능 상의 이득을 결과로 산출한다.
 3. 이때 사용하는 데이터가 범주형이 많을 경우 Weight는 적절하지 않으며, Label 별 데이터양이 불균형한 경우 Cover도 적절하지 않기 때문에 Gain으로 설정하였다.
 
+</br>
+
+## 8. 최종 모델 및 학습 결과
+<img width="970" alt="1" src="https://user-images.githubusercontent.com/66727848/152508591-2f2b877c-ceff-437d-bbb4-42e04807341c.png">
+
+
+***Test data Accuracy: Public Leaderboard: 0.95711, Private Leaderboard: 0.95658***
+
+## 9. 회고
+1. 
